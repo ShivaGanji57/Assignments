@@ -9,7 +9,7 @@ function storeLocal(e){
         userEmail: document.getElementById('email').value,
         userNumber:document.getElementById('Mobile').value
     };
-    //store as an object
+    //store as an object, email is unique so will use email as key
     let myobj_serilized=JSON.stringify(myobj)
-    localStorage.setItem('myobj',myobj_serilized)
+    localStorage.setItem(document.getElementById('email').value,myobj_serilized)
 }
