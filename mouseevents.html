@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box,#box1,#box2{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 100px 0 0 100px;
+        }
+    </style>
+</head>
+<body style="text-align: center;">
+    <div id="box" onclick="clickFun()">
+    </div>
+    <div id="box1" onmouseover="mouseoverFun()">
+    </div>
+    <div id="box2" onmouseout="mouseoutFun()">
+    </div>
+    <h1 style="color: red;">Get a Call</h1>
+    <form action="#" onsubmit="print(event)" style="background-color: pink; display: inline-block;" >
+        <label for="name">Student Name :</label>
+        <input type="text" name="Student" id="name"><br><br>
+        <label for="Mobile">Mobile Number:</label>
+        <input type="number" name="Mobile number" id="Mobile"><br><br>
+        <label for="email">Email-id:</label>
+        <input type="email" name="email" id="email"><br><br>
+        <input type="submit" value="submit">
+    </form>
+    <script>
+        function clickFun(){
+            alert("you right clicked the mouse");
+        }
+        function mouseoverFun(){
+            alert("you over the mouse");
+        }
+        function mouseoutFun(){
+            alert("you over and out the mouse");
+        }
+        function print(event){
+            event.preventDefault()
+                console.log(document.getElementById('name').value);
+                console.log(document.getElementById('Mobile').value);
+                console.log(document.getElementById('email').value);
+            }
+    </script>
+</body>
+</html>
