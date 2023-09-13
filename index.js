@@ -12,9 +12,13 @@ function storeLocal(e){
         userNumber:document.getElementById('Mobile').value
     };
     //store as an object, email is unique so will use email as key
-    let myobj_serilized=JSON.stringify(myobj)
-    localStorage.setItem(document.getElementById('email').value,myobj_serilized)
-    showUseronScreen(myobj)
+    // let myobj_serilized=JSON.stringify(myobj)
+    // localStorage.setItem(document.getElementById('email').value,myobj_serilized)
+    axios.
+        post("https://crudcrud.com/api/8fb6fa6a9f08430886e7d99917978143/userdata",myobj).
+        then(res=>showUseronScreen(res.data)).
+        catch(err=>console.log(err));
+    // showUseronScreen(myobj)
 }
 function showUseronScreen(obj){
     const parentElem=document.getElementById('list-items')
