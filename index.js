@@ -42,9 +42,16 @@ function showUseronScreen(obj){
     editbtn.type='button'
     editbtn.value='edit'
     editbtn.onclick=() =>{
-        localStorage.removeItem(obj.userEmail)
+        // localStorage.removeItem(obj.userEmail)
         parentElem.removeChild(li)
-        li.textContent=obj.userName+' - '+obj.userEmail+' - '+obj.userNumber;
+        //li.textContent=obj.userName+' - '+obj.userEmail+' - '+obj.userNumber;
+            document.getElementById('name').value=obj.userName
+            document.getElementById('email').value=obj.userEmail
+            document.getElementById('Mobile').value=obj.userNumber
+            axios.
+            delete(`https://crudcrud.com/api/3c724fbf297646bcad35131c55aa0084/userdata/${obj._id}`).
+            then(res).
+            catch(err=>console.log(err))
     }
     deletebtn.onclick=() =>{
         // localStorage.removeItem(obj.userEmail)
