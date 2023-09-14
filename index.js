@@ -15,7 +15,7 @@ function storeLocal(e){
     // let myobj_serilized=JSON.stringify(myobj)
     // localStorage.setItem(document.getElementById('email').value,myobj_serilized)
     axios.
-        post("https://crudcrud.com/api/8fb6fa6a9f08430886e7d99917978143/userdata",myobj).
+        post("https://crudcrud.com/api/3c724fbf297646bcad35131c55aa0084/userdata",myobj).
         then(res=>showUseronScreen(res.data)).
         catch(err=>console.log(err));
     // showUseronScreen(myobj)
@@ -23,7 +23,7 @@ function storeLocal(e){
 
 window.addEventListener("DOMContentLoaded",()=>{
     axios.
-    get("https://crudcrud.com/api/8fb6fa6a9f08430886e7d99917978143/userdata").
+    get("https://crudcrud.com/api/3c724fbf297646bcad35131c55aa0084/userdata").
     then(res=>{
         for(var i=0;i<res.data.length;i++){
             showUseronScreen(res.data[i])
@@ -47,7 +47,11 @@ function showUseronScreen(obj){
         li.textContent=obj.userName+' - '+obj.userEmail+' - '+obj.userNumber;
     }
     deletebtn.onclick=() =>{
-        localStorage.removeItem(obj.userEmail)
+        // localStorage.removeItem(obj.userEmail)
+        axios.
+            delete(`https://crudcrud.com/api/3c724fbf297646bcad35131c55aa0084/userdata/${obj._id}`).
+            then(res=>console.log(res)).
+            catch(err=>console.log(err))
         parentElem.removeChild(li)
     }
     li.appendChild(deletebtn)
