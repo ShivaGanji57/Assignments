@@ -20,6 +20,17 @@ function storeLocal(e){
         catch(err=>console.log(err));
     // showUseronScreen(myobj)
 }
+
+window.addEventListener("DOMContentLoaded",()=>{
+    axios.
+    get("https://crudcrud.com/api/8fb6fa6a9f08430886e7d99917978143/userdata").
+    then(res=>{
+        for(var i=0;i<res.data.length;i++){
+            showUseronScreen(res.data[i])
+        }
+    }).
+    catch(err=>console.log(err))
+})
 function showUseronScreen(obj){
     const parentElem=document.getElementById('list-items')
     var li=document.createElement('li')
